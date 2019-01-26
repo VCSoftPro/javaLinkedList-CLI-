@@ -1,64 +1,82 @@
 import java.util.*;
+/*
+  Author Name : Vishnu Choudhary
+  First Linked List Program in java.
+  Subject : Study for 5th/6th sem VCSoftPro Uploaded.
+*/
 
+//Node Class is store a data and linked pointer.
 class Node{
-	private String Data;
-	private Node next;
+	//Only access for the node class and sotre data.
+	private String Data; 
+	private Node next; 
 	
+	//This constructor is init. value for the data and next pointer is not to reuired for writen but you can set the value.
 	public Node(){
 		Data = null;
 		next = null;
 	}
+	//PeraMeterrize constructor is recive to type value and init for swap to data and next variable.
 	public Node(String d, Node n){
 		Data = d;
 		next = n;
 	}
 	
+	//This function is set to data in node for recive parameter value.
 	public void setData(String d){
 		Data = d;
 	}
+	//This function is set to pointer pint value for recive parameter value.
 	public void setNext(Node n){
 		next = n;
 	}
 	
+	//This function return to data value.
 	public String getData(){
 		return(Data);
 	}
+	//This function return to next pointer value.
 	public Node getNext(){
 		return(next);
 	}
 }
 
+//This class in store a operation for linked list, And call the node class by linked list class.
 class LinkedList{
-	private int size;
-	private Node start;
+	private int size; //size variable is count and store the total node value.
+	private Node start;//start is a first pointer to point the first node.
 	
+	//This constructor is init. the value for size and start in first time for calling this class. 
 	public LinkedList(){
 		size = 0;
 		start = null;
 	}
 	
+	// This function is inserted the value for node data member.
 	public void insertAtFirst(String val){
-		Node n;
-		n = new Node();
-		n.setData(val);
+		Node n; //create new node type pointer.
+		n = new Node(); // create a new object for node class.
+		n.setData(val); // set new node value.
 		n.setNext(start);
 		start = n;
 		size++;
 	}
+	//This function is insert to last node in new node.
 	public void insertAtLast(String val){
-		Node n, t;
-		n = new Node();
-		n.setData(val);
-		t = start;
+		Node n, t; // create new two node.
+		n = new Node();//create a new object for node class.
+		n.setData(val);//set new node value.
+		t = start; //node t is point to start pointer point node.
 		if(t == null)
 			start = n;
 		else{
-			while(t.getNext() != null)
+			while(t.getNext() != null)//check  who is node pointer is null.
 				t = t.getNext();
-			t.setNext(n);
+			t.setNext(n); // set null pointer to point to new node.
 		} 
-		size++;
+		size++;//count new node.
 	}
+	//This function is insert a particular position.
 	public void insertAtPos(String val, int pos){
 		if(pos == 1)
 			insertAtFirst(val);
